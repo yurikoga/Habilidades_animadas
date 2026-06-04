@@ -1,0 +1,96 @@
+:root {
+    --bg-color: #6366f1;
+    --card-bg: #ffffff;
+    --bar-empty: #f0f0f0;
+    --bar-fill: #5c5ce0;
+    --text-color: #1a1a1a;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.skills-card {
+    background: var(--card-bg);
+    padding: 40px 50px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item {
+    margin-bottom: 35px;
+}
+
+.skill-item:last-child {
+    margin-bottom: 0;
+}
+
+.skill-info {
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Fundo da Barra */
+.progress-line {
+    height: 10px;
+    width: 100%;
+    background: var(--bar-empty);
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Preenchimento da Barra */
+.progress-line span {
+    height: 100%;
+    background: var(--bar-fill);
+    border-radius: 10px;
+    position: absolute;
+    display: block;
+    width: 0; /* Começa em 0 para a animação */
+    transition: width 1.5s cubic-bezier(1, 0, 0.5, 1);
+}
+
+/* Balão de Porcentagem (Tag) */
+.percent-tag {
+    position: absolute;
+    right: -20px;
+    top: -45px;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.5s ease 1s;
+}
+
+/* Seta do Balão */
+.percent-tag::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #000;
+    bottom: -6px;
+    right: 6px;
+}
+
+.show-progress .percent-tag {
+    opacity: 1;
+}
